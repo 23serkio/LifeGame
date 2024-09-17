@@ -90,20 +90,20 @@ window.renderTasks = function(day, tasks) {
 }
 
 // Función para agregar tareas a un día específico
-window.addTask = function(day)  {
+window.addTask = function(day) {
     // Obtener el contenedor de tareas para el día específico
     const taskList = document.getElementById(`${day}-tasks`);
 
     // Crear un nuevo elemento de tarea
-    const newTask = prompt("Escribe la nueva tarea:");
+    const newTaskText = prompt("Escribe la nueva tarea:");
 
-    if (newTask) {
+    if (newTaskText) {
         // Crear un nuevo elemento de lista para la tarea
         const taskItem = document.createElement('div');
         taskItem.classList.add('task-item');
         taskItem.innerHTML = `
             <input type="checkbox">
-            <span>${newTask}</span>
+            <span>${newTaskText}</span>
             <button onclick="removeTask(this)">Eliminar</button>
         `;
         
@@ -112,9 +112,12 @@ window.addTask = function(day)  {
         
         // Guardar la tarea en Firebase
         const taskRef = ref(database, `tasks/${currentAccount}/${day}`);
-        push(taskRef, newTask).then(() => {
+        const newTaskRef = push(taskRef); // Obtener una nueva referencia con un ID único
+        set(newTaskRef, { text: newTaskText, completed: false }) // Guardar la tarea con texto y estado
+        .then(() => {
             console.log('Tarea agregada a Firebase.');
-        }).catch((error) => {
+        })
+        .catch((error) => {
             console.error('Error al agregar la tarea a Firebase:', error);
         });
     } else {

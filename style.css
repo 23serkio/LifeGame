@@ -1,99 +1,84 @@
-/* Estilo general */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #e0f7fa; /* Celeste claro */
+    color: #0277bd; /* Azul oscuro */
     margin: 0;
     padding: 0;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
-
 .container {
-    width: 90%;
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff;
+    text-align: center;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+h1 {
+    color: #01579b; /* Azul más oscuro */
 }
 
-input[type="date"],
-input[type="number"],
-input[type="text"],
-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-input[type="file"] {
-    margin-bottom: 15px;
-}
-
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+.account-selector button {
+    background-color: #03a9f4; /* Celeste */
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
     cursor: pointer;
-    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.account-selector button:hover {
+    background-color: #0288d1; /* Azul más fuerte */
 }
 
-#resultadoResumen {
+#task-section {
     margin-top: 20px;
 }
 
-#resultadoResumen img {
-    margin-top: 10px;
-    max-width: 100px;
-    max-height: 100px;
-    display: block;
+#day-lists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-hr {
-    border: 0;
-    height: 1px;
-    background-color: #ccc;
-    margin: 20px 0;
+.day-list {
+    width: 250px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #ffffff; /* Blanco */
+    border: 1px solid #01579b;
+    border-radius: 5px;
+    text-align: left;
 }
 
 h3 {
-    color: #007bff;
-    text-align: center;
+    color: #0277bd;
+    margin-bottom: 5px;
 }
 
-/* Estilo para el botón volver */
-#volver {
-    background-color: #28a745;
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #01579b;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
 }
 
-#volver:hover {
-    background-color: #218838;
+.task-item.completed {
+    text-decoration: line-through;
 }
 
-/* Estilo para la fase oculta inicialmente */
-#faseResumen {
-    display: none;
+.task-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.task-buttons button {
+    background-color: #0277bd;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
